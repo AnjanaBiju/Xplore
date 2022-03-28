@@ -1,0 +1,130 @@
+
+{%extends 'base.html'%}
+{%load static%}
+{%block body%}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-2">
+
+        </div>
+        <div class="col-md-8">
+            <div class="card p-3 mt-5">
+                <form method="post" action="teacher_register" enctype="multipart/form-data" >
+                    {%csrf_token%}
+
+                    <div class="row">
+                        <div class="col-md-12 mt-3">
+                            <center><h1>REGISTER</h1></center>
+                        </div>
+                        <div class="col-md-6 mt-3">
+
+                            <label >
+                                First Name
+                            </label>
+                            <input type="text" name="first_name" class="form-control">
+                        </div>
+                        <div class="col-md-6 mt-3">
+                            <label >
+                                Last Name
+                            </label>
+                            <input type="text" name="last_name" class="form-control">
+                        </div>
+                        <div class="col-md-12 mt-3">
+                            <label >
+                                Username
+                            </label>
+                            <input type="text" name="username" class="form-control">
+                        </div>
+                        
+                        <div class="col-md-12 mt-3">
+                            <label >
+                                Email
+                            </label>
+                            <input type="text" name="email" class="form-control">
+                        </div>
+                        <div class="col-md-12 mt-3">
+                            <label >
+                                DOB(YYYY-MM-DD)
+                            </label>
+                            <input type="text" name="DOB" class="form-control">
+                        </div>
+                        <div class="col-md-12 mt-3">
+                            <label >
+                               Contact
+                            </label>
+                            <input type="text" name="phone" class="form-control">
+                        </div>
+                        <div class="col-md-4 mt-3">
+                            <label >
+                                Sex
+                            </label>            
+                        </div>
+                        <div  class="col-md-4 mt-3">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault1">
+                            <label class="form-check-label" for="flexRadioDefault1">
+                              Female
+                            </label>
+                          </div>
+                          <div class="col-md-4 mt-3">
+                            <input class="form-check-input" type="radio" name="flexRadioDefault" id="flexRadioDefault2" checked>
+                            <label class="form-check-label" for="flexRadioDefault2">
+                              Male
+                            </label>
+                          </div>
+                          <div class="col-md-12 mt-3">
+                            <label >
+                            Department Name
+                            </label>
+                            <select class="form-control" aria-label="Default select example" name="dept_name">
+                                <option selected>Select</option>
+                                <option value="MCA">MCA</option>
+                                <option value="MBA">MBA</option>
+                                <option value="CSEM">CSE(MTECH)</option>
+                              </select>
+                        </div>
+                        <div class="col-md-12 mt-3">
+                            <label >
+                            Designation
+                            </label>
+                            <select class="form-control" aria-label="Default select example" name="designation">
+                                <option selected>Select</option>
+                                <option value="Associate Professor">Associate Professor</option>
+                                <option value="Assistant Professor">Assistant Professor</option>
+                                
+                              </select>
+                        </div>
+                        <div class="col-md-12 mt-3">
+                            <label >
+                            Photo
+                            </label>
+                            <input type="file" name="images" class="form-control">
+                        </div>
+                        <div class="col-md-12 mt-3">
+                            <label >
+                            Password
+                            </label>
+                            <input type="password" name="password" class="form-control">
+                        </div>
+                        <div class="col-md-12 mt-3">
+                            <label >
+                            Confirm Password
+                            </label>
+                            <input type="password" name="cpassword" class="form-control">
+                        </div>
+                        <div class="col-md-12 mt-3">    
+                            <button type="submit" class="btn btn-primary">REGISTER</button>
+                        </div>
+                        
+                    </div>
+                </form>
+            </div>
+            
+        </div>
+        <div class="col-md-2">
+            
+        </div>
+    </div>
+</div>
+
+{%endblock%}

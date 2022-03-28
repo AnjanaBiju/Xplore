@@ -22,7 +22,7 @@ def student_register(request):
                 print('ALREADY EXIST')
                 return render(request,'student/register.html')
             else:
-                user=User(first_name=first_name,last_name=last_name,username=username,email=email,password=password)
+                user=User.objects.create_user(first_name=first_name,last_name=last_name,username=username,email=email,password=password)
                 user.save()
                 student=Student(stud_dob=stud_dob,stud_branch=stud_branch,stud_dept_name=stud_dept_name,stud_image=stud_image,stud_phone=stud_phone,id=user)
                 print('SAVED')
