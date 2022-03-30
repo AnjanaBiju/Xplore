@@ -27,4 +27,5 @@ def student(request):
     return render(request,'/student/')
 @login_required(login_url='login')
 def welcome(request):
-    return render(request,'student/welcome.html') 
+    print('**********')
+    return render(request,'Teacher/teach_welcome.html') 

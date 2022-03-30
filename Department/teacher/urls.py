@@ -5,4 +5,5 @@ urlpatterns = [
     path('teacher',views.teacher,name='teacher'),
     path('teacher_register',views.teacher_register,name='teacher_register'),
     path('welcome',views.welcome,name='welcome'),
+    path('attendance_marking',views.attendance_marking,name='attendance_marking'),
 ]
