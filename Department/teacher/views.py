@@ -38,5 +38,8 @@ def teacher_register(request):
         return redirect('teacher_register')
 
 def welcome(request):
-    return render(request,'student/welcome.html')
+    print('****************')
+    return render(request,'Teacher/teach_welcome.html')
+def attendance_marking(request):
+    return render(request,'attendance_marking.html')
 

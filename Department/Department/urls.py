@@ -26,6 +26,7 @@ urlpatterns = [
     path('login_user',views.login_user,name='login_user'),
     path('',include('student.urls')),
     path('',include('teacher.urls')),
+    path('',include('hod.urls')),
 ]
 if settings.DEBUG:
     urlpatterns+=static(settings.MEDIA_URL,document_root=settings.MEDIA_ROOT)
