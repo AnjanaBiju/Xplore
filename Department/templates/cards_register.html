@@ -1,0 +1,113 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block body%}
+<style>
+     
+.flip-card {
+  background-color: transparent;
+  width: 300px;
+  height: 300px;
+  perspective: 1000px;
+}
+
+.flip-card-inner {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  text-align: center;
+  transition: transform 0.6s;
+  transform-style: preserve-3d;
+  box-shadow: 0 4px 8px 0 rgba(0,0,0,0.2);
+}
+
+.flip-card:hover .flip-card-inner {
+  transform: rotateY(180deg);
+}
+
+.flip-card-front, .flip-card-back {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  -webkit-backface-visibility: hidden;
+  backface-visibility: hidden;
+}
+
+.flip-card-front {
+  background-color: #bbb;
+  color: black;
+}
+
+.flip-card-back {
+  background-color: #2980b9;
+  color: white;
+  transform: rotateY(180deg);
+}
+.column {
+  float: left;
+  width: 25%;
+  padding: 0 10px;
+}
+.row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+</style>
+<body>
+    <div class=" mt-5">
+        <h1 align="center">SELECT YOUR ROLE</h1><br>
+<div class="row">
+    <div class="col-md-4">
+<div class="column">
+<div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <img src="{% static '/images/hod_card.jpg' %}" alt="Avatar" style="width:300px;height:300px;">
+      </div>
+      <div class="flip-card-back">
+        <h1>HEAD OF THE DEPARTMENT</h1> 
+        <a href="hod" ><button type="button" class="btn btn-primary"></button>  <br><br><br>
+        <a href="#" ><button type="button" class="btn btn-primary">ABOUT</button>
+      </div>
+    </div>
+  </div>
+</div></div>
+<div class="col-md-4">
+<div class="column">
+  <div class="flip-card">
+    <div class="flip-card-inner">
+      <div class="flip-card-front">
+        <img src="{% static '/images/teacher_card.jpg' %}" alt="Avatar" style="width:300px;height:300px;">
+      </div>
+      <div class="flip-card-back">
+        <h1 style="color:white;">TEACHER</h1> 
+        <a href="teacher_register" ><button type="button" class="btn btn-primary">SIGNUP</button> </a> <br><br><br>
+        <a href="#" ><button type="button" class="btn btn-primary">ABOUT</button></a>
+      </div>
+    </div>
+  </div>
+</div></div>
+<div class="col-md-4">
+<div class="column">
+    <div class="flip-card">
+      <div class="flip-card-inner">
+        <div class="flip-card-front">
+          <img src="{% static '/images/stud_card.jpg' %}" alt="Avatar" style="width:300px;height:300px;">
+        </div>
+        <div class="flip-card-back">
+          <h1>STUDENT</h1> 
+          <a href="student_register" ><button type="button" class="btn btn-primary"></button> </a> <br><br><br>
+          <a href="#" ><button type="button" class="btn btn-primary">ABOUT</button> </a> 
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+
+</div>
+
+
+</body>
+{%endblock%}

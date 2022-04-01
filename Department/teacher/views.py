@@ -3,11 +3,12 @@ from email.mime import image
 from tokenize import group
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User, auth
+from django.contrib.auth.decorators import login_required
 
 from . models import *
 
 def teacher(request):
-    return render(request,'Teacher/register.html')
+    return render(request,'Teacher/teach_register.html')
 def teacher_register(request):
     if request.method=='POST':
         first_name=request.POST['first_name']
@@ -30,16 +31,17 @@ def teacher_register(request):
                 user.save()
                 teacher=Teacher(teach_dept_name=dept_name,teach_dob=dob,group=1,teach_designation=designation,teach_phone=phone,teach_image=images,id=user)
                 teacher.save()
-                return redirect('welcome')
+                return redirect('login')
         else:
             print('WRONG PASSWORD')
-            return redirect('teacher_register')
+            return redirect('teacher')
     else:
-        return redirect('teacher_register')
-
+        return redirect('teacher')
+login_required(login_url='login')
 def welcome(request):
-    print('****************')
     return render(request,'Teacher/teach_welcome.html')
+login_required(login_url='login')
 def attendance_marking(request):
-    return render(request,'attendance_marking.html')
+    print(request.user,'********************************************')
+    return render(request,'Teacher/attendance_marking.html')
 

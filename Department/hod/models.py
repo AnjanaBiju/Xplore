@@ -10,4 +10,6 @@ class Hod(models.Model):
     hod_group=models.IntegerField()
     hod_dob=models.DateField()
     hod_phone=models.IntegerField()
-    hod_image=models.FileField()
+    hod_image=models.FileField(upload_to='images')
+    def __str__(self):
+        return self.user.username

@@ -79,7 +79,7 @@ WSGI_APPLICATION = 'Department.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.mysql',
-        'NAME':'department',
+        'NAME':'Xplore',
         'USER':'root',
         'PASSWORD':'',
         'PORT':'3306',
