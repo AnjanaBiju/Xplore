@@ -1,0 +1,89 @@
+
+{%extends 'base.html'%}
+{%load static%}
+{%block body%}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+
+        </div>
+        <div class="col-md-6">
+            <div class="card p-3 mt-5">
+                <form method="post" action="tutor_allocating" enctype="multipart/form-data" >
+                    {%csrf_token%}
+
+                    <div class="row">
+                        <div class="col-md-12 mt-3">
+                            <center><h1>TUTOR ALLOCATION</h1></center>
+                        </div>
+                        <div class="col-md-12 mt-3">
+                            <label >
+                                Batch
+                            </label>
+                            <select class="form-control" aria-label="Default select example" name="batch">
+                                <option selected>Select</option>
+                                <option value="2019">2019</option>
+                                <option value="2020">2020</option>
+                                <option value="2021">2021</option>
+                                <option value="2022">2022</option>
+                              </select>
+                        </div>
+                        
+                        <div class="col-md-12 mt-3">
+                            <label >
+                                Tutor name
+                            </label>
+                            <select class="form-control" aria-label="Default select example" name="tutor">
+                                <option selected>SELECT</option>
+                                {%for i in teacher%}
+                                
+                                <option value="{{i.id.username}}">{{i.id.username}}</option>
+                                {%endfor%}
+                              </select>
+                        </div>
+                        <div class="col-md-12 mt-3">
+                            <label >
+                                Date
+                            </label>
+                            <input type="text" name="date" class="form-control">
+                        </div>
+                        
+                          <div class="col-md-12 mt-3">
+                            <label >
+                            Department Name
+                            </label>
+                            <select class="form-control" aria-label="Default select example" name="dept_name">
+                                <option selected>Select</option>
+                                <option value="MCA">MCA</option>
+                                <option value="MBA">MBA</option>
+                                <option value="CSEM">CSE(MTECH)</option>
+                              </select>
+                        </div>
+                        <div class="col-md-12 mt-3">
+                            <label >
+                            Subject
+                            </label>
+                            <select class="form-control" aria-label="Default select example" name="subject">
+                                <option selected>Select</option>
+                                <option value="Maths">Maths</option>
+                                <option value="Software engineering">Software engineering</option>
+                                <option value="ADM">ADM</option>
+                              </select>
+                        </div>
+                        <div class="col-md-12 mt-3">    
+                            <button type="submit" class="btn btn-primary">REGISTER</button>
+                        </div>
+                        
+                    </div>
+                </form>
+            </div>
+            
+        </div>
+        <div class="col-md-2">
+            
+        </div>
+    </div>
+</div>
+
+{%endblock%}

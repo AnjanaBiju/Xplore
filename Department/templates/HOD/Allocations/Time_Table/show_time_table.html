@@ -1,0 +1,33 @@
+{%extends 'base.html'%} 
+{%load static%}
+{%block body%}
+<div class="container ">
+    <h1 align="center">TIME TABLE COORDINATORS</h1>
+<table class="table table-hover table-dark">
+    <thead>
+      <tr>      
+        <th scope="col">Department</th>
+        <th scope="col">Time Table Coordinator</th>
+        <th scope="col">Date</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+        {%for i in coordinator%}
+        <tr>
+            <td>
+                  {{i.dept_name}}
+            </td>
+            <td>
+                {{i.username}}
+            </td>
+            <td>
+                {{i.date}}
+            </td>
+            
+            {%endfor%}
+            </tr>
+            </tbody>
+  </table>
+</div>
+{%endblock%}

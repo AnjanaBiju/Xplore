@@ -1,0 +1,35 @@
+{%extends 'base.html'%} 
+{%load static%}
+{%block body%}
+<div class="container ">
+    <h1 align="center">CLASS TUTORS LIST</h1>
+<table class="table table-hover table-dark">
+    <thead>
+      <tr>      
+        <th scope="col">Batch</th>
+        <th scope="col">Teacher</th>
+        <th scope="col">Subject</th>
+        <th scope="col">Department</th>
+      </tr>
+    </thead>
+    <tbody>
+        {%for i in tutors%}
+        <tr>
+            <td>
+                  {{i.batch}}
+            </td>
+            <td>
+                {{i.tutor}}
+            </td>
+            <td>
+                {{i.subject}}
+            </td>
+            <td>
+                {{i.dept_name}}
+            </td>
+            {%endfor%}
+            </tr>
+            </tbody>
+  </table>
+</div>
+{%endblock%}
