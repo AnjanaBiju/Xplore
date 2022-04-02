@@ -18,4 +18,7 @@ urlpatterns = [
     path('/welcomes/placement',views.placement,name='placement'),
     path('/welcomes/placement_coordinator',views.placement_coordinator,name='placement_coordinator'),
     path('/welcomes/show_placement_coordinators',views.show_placement_coordinators,name='show_placement_coordinators'),
+    path('/welcomes/exam_coordinators',views.exam_coordinators,name='exam_coordinators'),
+    path('/welcomes/exam_coordination',views.exam_coordination,name='exam_coordination'),
+    path('/welcomes/show_exam_coordinators',views.show_exam_coordinators,name='show_exam_coordinators'),
     ]

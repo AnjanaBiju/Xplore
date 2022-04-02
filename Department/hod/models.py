@@ -39,5 +39,9 @@ class Placement_coordinator(models.Model):
     username=models.CharField(max_length=200)
     dept_name=models.CharField(max_length=200)
     date=models.DateField()
+class Exam_coordinator(models.Model):
+    username=models.CharField(max_length=200)
+    dept_name=models.CharField(max_length=200)
+    date=models.DateField()
 
 

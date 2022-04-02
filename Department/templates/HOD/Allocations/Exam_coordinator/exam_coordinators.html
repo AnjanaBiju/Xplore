@@ -1,0 +1,65 @@
+
+{%extends 'base.html'%}
+{%load static%}
+{%block body%}
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+
+        </div>
+        <div class="col-md-6">
+            <div class="card p-3 mt-5">
+                <form method="post" action="exam_coordination" enctype="multipart/form-data" >
+                    {%csrf_token%}
+
+                    <div class="row">
+                        <div class="col-md-12 mt-3">
+                            <center><h1>ASSIGN EXAM COORDINATOR</h1></center>
+                        </div> 
+                        <div class="col-md-12 mt-3">
+                            <label >
+                                Coordinator name
+                            </label>
+                            <select class="form-control" aria-label="Default select example" name="tutor">
+                                <option selected>SELECT</option>
+                                {%for i in coordinator%}
+                                
+                                <option value="{{i.id.username}}">{{i.id.username}}</option>
+                                {%endfor%}
+                              </select>
+                        </div>
+                        <div class="col-md-12 mt-3">
+                            <label >
+                                Date
+                            </label>
+                            <input type="text" name="date" class="form-control">
+                        </div>
+                        
+                          <div class="col-md-12 mt-3">
+                            <label >
+                            Department Name
+                            </label>
+                            <select class="form-control" aria-label="Default select example" name="dept_name">
+                                <option selected>Select</option>
+                                <option value="{{dept_name}}">{{dept_name}}</option>
+                                
+                              </select>
+                        </div>
+                       
+                        <div class="col-md-12 mt-3">    
+                            <button type="submit" class="btn btn-primary">REGISTER</button>
+                        </div>
+                        
+                    </div>
+                </form>
+            </div>
+            
+        </div>
+        <div class="col-md-2">
+            
+        </div>
+    </div>
+</div>
+
+{%endblock%}

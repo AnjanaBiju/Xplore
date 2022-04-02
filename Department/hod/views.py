@@ -162,4 +162,29 @@ def show_placement_coordinators(request):
     coordinators=Placement_coordinator.objects.all()
     return render(request,'HOD/Allocations/Placement/show_placements.html',{'coordinator':coordinators})
         
+#exam_coordinaors
+def exam_coordinators(request):
+    user=User.objects.get(id=request.user.id)
+    id=user.id
+    hod=Hod.objects.get(id=id)
+    dept_name=hod.hod_dept_name
+    coordinator=Teacher.objects.filter(teach_dept_name=dept_name)
+
+    return render(request,'HOD/Allocations/Exam_coordinator/exam_coordinators.html',{'coordinator':coordinator,'dept_name':dept_name})
+def exam_coordination(request):
+    if request.method=='POST':
+        username=request.POST['tutor']
+        dept_name=request.POST['dept_name']
+        date=request.POST['date']
+        if Exam_coordinator.objects.filter(dept_name=dept_name).exists():
+            messages.error(request,'Already allocated')
+            return redirect('show_exam_coordinators')
+        else:
+            coordinator=Exam_coordinator(username=username,date=date,dept_name=dept_name)
+            coordinator.save()
+            messages.info(request,'assigned')
+            return redirect('show_exam_coordinators')
+def show_exam_coordinators(request):
+    coordinator=Exam_coordinator.objects.all()
+    return render(request,'HOD/Allocations/Exam_coordinator/show_exam_coordinators.html',{'coordinators':coordinator})
 
