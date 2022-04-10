@@ -15,8 +15,7 @@ class Hod(models.Model):
     hod_dob=models.DateField()
     hod_phone=models.IntegerField()
     hod_image=models.FileField(upload_to='images')
-    def __str__(self):
-        return self.user.username
+
 class Tutor_allocation(models.Model):
     #hod_id=models.ForeignKey(Hod,on_delete=models.CASCADE)
     #teach_id=models.ForeignKey(Teacher,on_delete=models.CASCADE)

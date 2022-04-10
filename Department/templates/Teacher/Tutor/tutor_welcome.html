@@ -1,9 +1,6 @@
-
 {%extends 'base.html'%}
 {%load static%}
 {%block body%}
-<!DOCTYPE html>
-<!-- Created By CodingNepal - www.codingnepalweb.com -->
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -25,23 +22,24 @@
         
         <li class="nav-item dropdown">
           <a class="navbarDropdownMenuLink" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            Notifications
+            Actions
           </a>
           <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-            <a class="dropdown-item" href="tutor_notifications">Tutor</a>
-            <a class="dropdown-item" href="exam_notifications">Exam</a>
-            <a class="dropdown-item" href="time_table_notifications">Time table</a>
-            <a class="dropdown-item" href="subject_alloc_notification">Subject </a>
+            <a class="dropdown-item" href="tutor_notifications">Calculator</a>
+            <a class="dropdown-item" href="exam_notifications">Internal Mark</a>
+            <a class="dropdown-item" href="student_list">View Students</a>
+            <a class="dropdown-item" href="subject_alloc_notification">Subject</a>
             <a class="dropdown-item" href="placement_notification">Placements</a>
           </div>
         </li>
-        <li><a href="#">Leave Request</a></li>
+        
         <li><a href="logout">LOGOUT</a></li>
       </ul>
     </nav>
-    <section></section>
+    <section><h2>You are allocated as a tutor for {{batch.batch}}</h2></section>
   </body>
 </html>
- 
-  {%endblock%}
-  
+
+
+
+{%endblock%}

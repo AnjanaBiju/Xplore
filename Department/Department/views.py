@@ -31,7 +31,7 @@ def login_user(request):
 @login_required(login_url='login')
 def welcomes(request):
     print(request.user,'********')
-    return render(request,'HOD/hod_welcome.html') 
+    return render(request,'Teacher/teach_welcome.html') 
 def card_register(request):
     print(request.user)
     return render(request,'cards_register.html')

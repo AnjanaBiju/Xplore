@@ -6,4 +6,11 @@ urlpatterns = [
     path('teacher_register',views.teacher_register,name='teacher_register'),
     path('welcome',views.welcome,name='welcome'),
     path('attendance_marking',views.attendance_marking,name='attendance_marking'),
+    path('placement_notification',views.placement_notification,name='placement_notification'),
+    path('subject_alloc_notification',views.subject_alloc_notification,name='subject_alloc_notification'),
+    path('exam_notifications',views.exam_notifications,name='exam_notifications'),
+    path('time_table_notifications',views.time_table_notifications,name='time_table_notifications'),
+    path('tutor_notifications',views.tutor_notifications,name='tutor_notifications'),
+    path('student_list',views.student_list,name='student_list'),
+
 ]

@@ -4,8 +4,10 @@ from tokenize import group
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User, auth
 from django.contrib.auth.decorators import login_required
-
+from hod.models import *
+from student.models import *
 from . models import *
+from django.contrib import messages
 
 def teacher(request):
     return render(request,'Teacher/teach_register.html')
@@ -44,4 +46,77 @@ login_required(login_url='login')
 def attendance_marking(request):
     print(request.user,'********************************************')
     return render(request,'Teacher/attendance_marking.html')
+def placement_notification(request):
+    username=request.user.username
+    print(username)
+    if Placement_coordinator.objects.filter(username=username):
+        messages.info(request,'You are allocated as placement coordinator ',extra_tags='messages')
+    else:
+        messages.info(request,'You are not allocated as placement coordinator ',extra_tags='messages')
+        
 
+    return redirect('welcome')
+
+def exam_notifications(request):
+    username=request.user.username
+    print(username)
+    if Exam_coordinator.objects.filter(username=username):
+        print('yes')
+        messages.info(request,'You are allocated as exam coordinator',extra_tags='messages')
+
+    else:
+        print('Not')
+        messages.info(request,'You are not allocated as exam coordinator',extra_tags='messages')
+
+    return redirect('welcome')
+
+
+def time_table_notifications(request):
+    username=request.user.username
+    print(username)
+    if Time_table_coordinator.objects.filter(username=username):
+        print('yes')
+        messages.info(request,'You are allocated as time table coordinator ',extra_tags='messages')
+
+    else:
+        print('Not')
+        messages.info(request,'You are not allocated as time table coordinator ',extra_tags='messages')
+
+    return redirect('welcome')
+
+
+def tutor_notifications(request):
+    username=request.user.username
+    print(username)
+    if Tutor_allocation.objects.filter(tutor=username):
+        batch=Tutor_allocation.objects.get(tutor=username)
+        print(batch.batch)
+        #messages.info(request,'You are allocated as tutor ',extra_tags='messages')
+        print('yes')
+        return render(request,'Teacher/Tutor/tutor_welcome.html',{'batch':batch})
+    else:
+        messages.info(request,'You are not allocated as tutor ',extra_tags='messages')
+
+    return redirect('welcome')
+
+
+def subject_alloc_notification(request):
+    username=request.user.username
+    print(username)
+    if Subject_allocation.objects.filter(tutor=username):
+        messages.info(request,'You are allocated for a subject ',extra_tags='messages')
+        print('yes')
+    else:
+        messages.info(request,'You are not allocated for any subjects',extra_tags='messages')
+
+    return redirect('welcome')
+
+def student_list(request):
+    print('***student list***')
+    username=User.objects.get(username=request.user.username)
+    id=username.id
+    batch=Tutor_allocation.objects.get(tutor=username) 
+    batch=batch.batch
+    students=Student.objects.filter(stud_branch=batch)
+    print(students,'****')
+    return render(request,'Teacher/Tutor/student_list.html',{'students':students,'batch':batch})

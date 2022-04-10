@@ -15,4 +15,9 @@ class Teacher(models.Model):
     #1 for teachers
     #0 for students
     #2 for hods
-    
+class Subjects(models.Model):
+    sub_code=models.AutoField(primary_key=True)
+    subject=models.CharField(max_length=200)
+    dept_name=models.CharField(max_length=200)
+    semester=models.IntegerField()
+        
