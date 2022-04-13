@@ -12,5 +12,9 @@ urlpatterns = [
     path('time_table_notifications',views.time_table_notifications,name='time_table_notifications'),
     path('tutor_notifications',views.tutor_notifications,name='tutor_notifications'),
     path('student_list',views.student_list,name='student_list'),
+    path('placement_welcome',views.placement_welcome,name='placement_welcome'),
+    path('questions',views.questions,name='questions'),
+    path('add_questions',views.add_questions,name='add_questions'),
+    path('show_questions',views.show_questions,name='show_questions'),
 
 ]

@@ -1,5 +1,6 @@
 import email
 from email.mime import image
+#from itertools import total
 from tokenize import group
 from django.shortcuts import redirect, render
 from django.contrib.auth.models import User, auth
@@ -51,11 +52,10 @@ def placement_notification(request):
     print(username)
     if Placement_coordinator.objects.filter(username=username):
         messages.info(request,'You are allocated as placement coordinator ',extra_tags='messages')
+        return redirect('placement_welcome')
     else:
         messages.info(request,'You are not allocated as placement coordinator ',extra_tags='messages')
-        
-
-    return redirect('welcome')
+        return redirect('welcome')
 
 def exam_notifications(request):
     username=request.user.username
@@ -120,3 +120,37 @@ def student_list(request):
     students=Student.objects.filter(stud_branch=batch)
     print(students,'****')
     return render(request,'Teacher/Tutor/student_list.html',{'students':students,'batch':batch})
+def placement_welcome(request):
+    return render(request,'Teacher/Placements/placement_welcome.html')
+def questions(request):
+    user=User.objects.get(username=request.user)
+    id=user.id
+    coordinator=Teacher.objects.get(id=id)
+    dept_name=coordinator.teach_dept_name
+    return render(request,'Teacher/Placements/Questions_upload.html',{'dept_name':dept_name})
+def add_questions(request):
+    if request.method=='POST':
+        Dept_name=request.POST['Dept_name']
+        Subject=request.POST['Subject']
+        Question=request.POST['Question']
+        OptionA=request.POST['OptionA']
+        OptionB=request.POST['OptionB']
+        OptionC=request.POST['OptionC']
+        OptionD=request.POST['OptionD']
+        Answer=request.POST['Answer']
+        Level=request.POST['Level']
+        Score=request.POST['Score']
+        question=Questions(Dept_name=Dept_name,Subject=Subject,Question=Question,OptionA=OptionA,OptionB=OptionB,OptionC=OptionC,OptionD=OptionD,answer=Answer,Score=Score,Level=Level)
+        question.save()
+        print('saved')
+        return redirect('questions')
+    else:
+        return render(request,'Teacher/Placements/Questions_upload.html')
+
+def show_questions(request):
+    id=request.user.id
+    #print(id,'***')
+    tutor=Teacher.objects.get(id=id)
+    dept=tutor.teach_dept_name
+    questions=Questions.objects.filter(Dept_name=dept)
+    return render(request,'Teacher/Placements/Questions.html',{'questions':questions})

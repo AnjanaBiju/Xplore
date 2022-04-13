@@ -1,0 +1,119 @@
+{%extends 'base.html'%}
+{%load static%}
+
+{%block body%}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-2">
+
+        </div>
+        <div class="col-md-8">
+            <div class="card p-3 mt-5">
+                <form method="post" action="add_questions" enctype="multipart/form-data" >
+                    {%csrf_token%}
+
+                    <div class="row">
+                        <div class="col-md-12 mt-3">
+                            <center><h1>UPLOAD QUESTIONS</h1></center>
+                        </div>
+                        <div class="col-md-12 mt-3">
+                            Department
+                            </label>
+                            <select class="form-control" aria-label="Default select example" name="Dept_name">
+                                
+                                <option value="{{dept_name}}">{{dept_name}}</option>
+   
+                              </select>
+                        </div>
+                        <div class="col-md-12 mt-3">
+                            <label >
+                            Subject
+                            </label>
+                            <select class="form-control" aria-label="Default select example" name="Subject">
+                                
+                                <option value="Quantitative">Quantitative</option>
+                                <option value="Reasoning">Reasoning</option>
+                                <option value="English">English</option>
+                                <option value="Technical">Technical</option>
+                              </select>
+                        </div>
+                        <div class="col-md-12 mt-3">
+
+                            <label >
+                                Question
+                            </label>
+                            <input type="text" name="Question" class="form-control">
+                        </div>
+                        <div class="col-md-12 mt-3">
+                            <label >
+                                Option A
+                            </label>
+                            <input type="text" name="OptionA" class="form-control">
+                        </div>
+                        <div class="col-md-12 mt-3">
+                            <label >
+                                Option B
+                            </label>
+                            <input type="text" name="OptionB" class="form-control">
+                        </div>
+                        
+                        <div class="col-md-12 mt-3">
+                            <label >
+                                Option C
+                            </label>
+                            <input type="text" name="OptionC" class="form-control">
+                        </div>
+                        <div class="col-md-12 mt-3">
+                            <label >
+                                Option D
+                            </label>
+                            <input type="text" name="OptionD" class="form-control">
+                        </div>
+                        <div class="col-md-12 mt-3">
+                            Answer
+                            </label>
+                            <select class="form-control" aria-label="Default select example" name="Answer">
+                                <option selected>Select</option>
+                                <option value="OptionA">Option A</option>
+                                <option value="OptionB">Option B</option>
+                                <option value="OptionC">Option C</option>     
+                                <option value="OptionD">Option D</option>     
+                              </select>
+                        </div>
+                        
+                        <div class="col-md-12 mt-3">
+                            Level
+                            </label>
+                            <select class="form-control" aria-label="Default select example" name="Level">
+                                <option selected>Select</option>
+                                <option value="Easy">Easy</option>
+                                <option value="Medium">Medium</option>
+                                <option value="High">High</option>     
+                              </select>
+                        </div>
+                        <div class="col-md-12 mt-3">
+                            <label >
+                            Score
+                            </label>
+                            <input type="text" name="Score" class="form-control">
+                        </div>
+                        <div class="col-md-12 mt-3">    
+                            <button type="submit" class="btn btn-primary">UPLOAD</button>
+                        </div>
+                        
+                    </div>
+                </form>
+            </div>
+            
+        </div>
+        <div class="col-md-2">
+            
+        </div>
+    </div>
+</div>
+
+
+
+{%endblock%}

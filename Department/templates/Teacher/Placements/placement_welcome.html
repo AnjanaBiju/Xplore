@@ -1,0 +1,43 @@
+{%extends 'base.html'%}
+{%load static%}
+{%block body%}
+<html lang="en" dir="ltr">
+  <head>
+    <meta charset="utf-8">
+    <title></title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="{static 'css/style.css'}">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css"/>
+  </head>
+  <body>
+    <nav>
+      <input type="checkbox" id="check">
+      <label for="check" class="checkbtn">
+        <i class="fas fa-bars"></i>
+      </label>
+      <label class="logo">Xplore</label>
+      <ul>
+        <li><a  href="#">Home</a></li>
+        <li><a href="attendance_marking">Attendance</a></li>
+        
+        <li class="nav-item dropdown">
+          <a class="navbarDropdownMenuLink" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Actions
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="questions">Questions</a>
+            <a class="dropdown-item" href="show_questions">Progress</a>
+            <a class="dropdown-item" href="student_list">Materials</a>
+          </div>
+        </li>
+        
+        <li><a href="logout">LOGOUT</a></li>
+      </ul>
+    </nav>
+    <section></section>
+  </body>
+</html>
+
+
+
+{%endblock%}
