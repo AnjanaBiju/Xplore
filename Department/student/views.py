@@ -37,4 +37,5 @@ def student_register(request):
 
 def welcome(request):
     return render(request,'student/welcome.html')
-
+def mock_entrance(request):
+    return render(request,'Student/Mock_Test/entrance_page.html')

@@ -77,12 +77,13 @@ def time_table_notifications(request):
     if Time_table_coordinator.objects.filter(username=username):
         print('yes')
         messages.info(request,'You are allocated as time table coordinator ',extra_tags='messages')
+        return redirect('time_table_welcome')
 
     else:
         print('Not')
         messages.info(request,'You are not allocated as time table coordinator ',extra_tags='messages')
 
-    return redirect('welcome')
+        return redirect('welcome')
 
 
 def tutor_notifications(request):
@@ -91,6 +92,7 @@ def tutor_notifications(request):
     if Tutor_allocation.objects.filter(tutor=username):
         batch=Tutor_allocation.objects.get(tutor=username)
         print(batch.batch)
+        print(request.user.id)
         #messages.info(request,'You are allocated as tutor ',extra_tags='messages')
         print('yes')
         return render(request,'Teacher/Tutor/tutor_welcome.html',{'batch':batch})
@@ -154,3 +156,25 @@ def show_questions(request):
     dept=tutor.teach_dept_name
     questions=Questions.objects.filter(Dept_name=dept)
     return render(request,'Teacher/Placements/Questions.html',{'questions':questions})
+def time_table_welcome(request):
+    return render(request,'Teacher/Time_table/time_table_welcome.html')
+def time_table_generation(request):
+    id=request.user.id
+    tutor=Teacher.objects.get(id=id)
+    dept=tutor.teach_dept_name
+    return render(request,'Teacher/Time_table/upload_timetable.html',{'dept':dept})
+def attendance_marking(request):
+    id=request.user.id
+    tutor=Teacher.objects.get(id=id)
+    dept=tutor.teach_dept_name
+    if Tutor_allocation.objects.filter(tutor=request.user.username).exists():
+        tutor=Tutor_allocation.objects.get(tutor=request.user.username)
+        batch=tutor.batch
+    else:
+        if Subject_allocation.objects.filter(tutor=request.user.username).exists():
+            tutor=Subject_allocation.objects.get(tutor=request.user.username)
+            batch=tutor.batch
+    
+    #stud_batch==tutor.teach_batch
+    students=Student.objects.filter(stud_dept_name=dept,stud_branch=batch)
+    return render(request,'Teacher/Attendance/attendance.html',{'students':students})

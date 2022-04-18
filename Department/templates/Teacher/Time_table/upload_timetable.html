@@ -1,0 +1,176 @@
+{%extends 'base.html'%}
+{%load static%}
+
+{%block body%}
+
+
+<div class="container">
+    <div class="row">
+       
+        <div class="col-md-12">
+            <div class="card p-3 mt-5">
+                <form method="post" action="add_questions" enctype="multipart/form-data" >
+                    {%csrf_token%}
+
+                    <div class="row">
+                        <div class="col-md-12 mt-3">
+                            <center><h1>UPLOAD TIME TABLE</h1></center>
+                        </div>
+                        <div class="col-md-12 mt-3">
+                            Department
+                            </label>
+                            <select class="form-control" aria-label="Default select example" name="Dept_name">
+                                
+                                <option value="{{dept}}">{{dept}}</option>
+   
+                              </select>
+                        </div>
+                        <div class="col-md-12 mt-3">
+                            <label >
+                            Semester
+                            </label>
+                            <select class="form-control" aria-label="Default select example" name="Subject">
+                                
+                                <option value="First">First Sem</option>
+                                <option value="Second">2</option>
+                                <option value="Third">3</option>
+                                <option value="Fourth">4</option>
+                                <option value="Fifth">Fifth Sem</option>
+                              </select>
+                        </div>
+                        <div class="col-md-2 mt-3">
+                            <label >
+                            Day
+                            </label>
+                            <select class="form-control" aria-label="Default select example" name="Subject">
+                                
+                                <option value="Monday">Monday</option>
+                                <option value="Tuesday">Tuesday</option>
+                                <option value="Wednesday">Wednesday</option>
+                                <option value="Thursday">Thursday</option>
+                                <option value="Friday">Friday</option>
+                              </select>
+                        </div>
+                        
+                        <div class="col-md-2 mt-3">
+                            <label >
+                            9:00 to 10:00
+                            </label>
+                            <select class="form-control" aria-label="Default select example" name="Subject">
+                                
+                                <option value="Mathematics">Mathematics</option>
+                                <option value="SE">Software Engineering</option>
+                                <option value="DBMS">DBMS</option>
+                                <option value="JAVA">JAVA</option>
+                                <option value="C">C</option>
+                              </select>
+                        </div>
+                        <div class="col-md-2 mt-3">
+                            <label >
+                            10:00 to 11:00
+                            </label>
+                            <select class="form-control" aria-label="Default select example" name="Subject">
+                                
+                                <option value="Mathematics">Mathematics</option>
+                                <option value="SE">Software Engineering</option>
+                                <option value="DBMS">DBMS</option>
+                                <option value="JAVA">JAVA</option>
+                                <option value="C">C</option>
+                              </select>
+                        </div>
+                        <div class="col-md-2 mt-3">
+                            <label >
+                            11:10 to 12:10
+                            </label>
+                            <select class="form-control" aria-label="Default select example" name="Subject">
+                                
+                                <option value="Mathematics">Mathematics</option>
+                                <option value="SE">Software Engineering</option>
+                                <option value="DBMS">DBMS</option>
+                                <option value="JAVA">JAVA</option>
+                                <option value="C">C</option>
+                              </select>
+                        </div>
+                        <div class="col-md-2 mt-3">
+                            <label >
+                            12:10 to 12:50
+                            </label>
+                            <select class="form-control" aria-label="Default select example" name="Subject">
+                                
+                                <option value="Mathematics">Mathematics</option>
+                                <option value="SE">Software Engineering</option>
+                                <option value="DBMS">DBMS</option>
+                                <option value="JAVA">JAVA</option>
+                                <option value="C">C</option>
+                              </select>
+                        </div>
+                        <div class="col-md-2 mt-3">
+                            <label >
+                            01:30 to 02:30
+                            </label>
+                            <select class="form-control" aria-label="Default select example" name="Subject">
+                                
+                                <option value="Mathematics">Mathematics</option>
+                                <option value="SE">Software Engineering</option>
+                                <option value="DBMS">DBMS</option>
+                                <option value="JAVA">JAVA</option>
+                                <option value="C">C</option>
+                              </select>
+                        </div>
+                        <div class="col-md-2 mt-3">
+                            <label >
+                            02:30 to 03:30
+                            </label>
+                            <select class="form-control" aria-label="Default select example" name="Subject">
+                                
+                                <option value="Mathematics">Mathematics</option>
+                                <option value="SE">Software Engineering</option>
+                                <option value="DBMS">DBMS</option>
+                                <option value="JAVA">JAVA</option>
+                                <option value="C">C</option>
+                              </select>
+                        </div>
+                        <div class="col-md-2 mt-3">
+                            <label >
+                            02:40 to 03:40
+                            </label>
+                            <select class="form-control" aria-label="Default select example" name="Subject">
+                                
+                                <option value="Mathematics">Mathematics</option>
+                                <option value="SE">Software Engineering</option>
+                                <option value="DBMS">DBMS</option>
+                                <option value="JAVA">JAVA</option>
+                                <option value="C">C</option>
+                              </select>
+                        </div>
+                        <div class="col-md-2 mt-3">
+                            <label >
+                            03:40 to 04:30
+                            </label>
+                            <select class="form-control" aria-label="Default select example" name="Subject">
+                                
+                                <option value="Mathematics">Mathematics</option>
+                                <option value="SE">Software Engineering</option>
+                                <option value="DBMS">DBMS</option>
+                                <option value="JAVA">JAVA</option>
+                                <option value="C">C</option>
+                              </select>
+                        </div>
+                        <div class="col-md-12 mt-3">    
+                            <button type="submit" class="btn btn-primary">UPLOAD</button>
+                        </div>
+                        
+                    </div>
+                </form>
+            </div>
+            
+        </div>
+        <div class="col-md-2">
+            
+        </div>
+    </div>
+</div>
+
+
+
+{%endblock%}

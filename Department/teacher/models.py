@@ -1,5 +1,7 @@
 from operator import mod
 from optparse import Option
+from pyexpat import model
+from statistics import mode
 from django.db import models
 from django.contrib.auth.models import User, auth
 
@@ -33,3 +35,11 @@ class Questions(models.Model):
     answer=models.CharField(max_length=200)
     Level=models.CharField(max_length=200)
     Score=models.IntegerField()
+class Time_table(models.Model):
+    id=models.AutoField(primary_key=True)
+    semester=models.CharField(max_length=200)
+    dept=models.CharField(max_length=200)
+    subjects=models.CharField(max_length=200)
+    tutor=models.CharField(max_length=200)
+    day=models.CharField(max_length=200)
+    time=models.CharField(max_length=200)

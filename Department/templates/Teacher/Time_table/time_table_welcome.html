@@ -1,9 +1,6 @@
-
 {%extends 'base.html'%}
 {%load static%}
 {%block body%}
-<!DOCTYPE html>
-<!-- Created By CodingNepal - www.codingnepalweb.com -->
 <html lang="en" dir="ltr">
   <head>
     <meta charset="utf-8">
@@ -21,15 +18,26 @@
       <label class="logo">Xplore</label>
       <ul>
         <li><a  href="#">Home</a></li>
-        <li><a href="#">Attendance</a></li>
-        <li><a href="#">Score</a></li>
-        <li><a href="mock_entrance">Exam</a></li>
+        <li><a href="attendance_marking">Attendance</a></li>
+        
+        <li class="nav-item dropdown">
+          <a class="navbarDropdownMenuLink" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            Actions
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+            <a class="dropdown-item" href="questions">Upload</a>
+            <a class="dropdown-item" href="time_table_generation">Generate</a>
+            <a class="dropdown-item" href="student_list">Materials</a>
+          </div>
+        </li>
+        
         <li><a href="logout">LOGOUT</a></li>
       </ul>
     </nav>
     <section></section>
   </body>
 </html>
- 
-  {%endblock%}
-  
+
+
+
+{%endblock%}

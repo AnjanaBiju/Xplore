@@ -16,5 +16,7 @@ urlpatterns = [
     path('questions',views.questions,name='questions'),
     path('add_questions',views.add_questions,name='add_questions'),
     path('show_questions',views.show_questions,name='show_questions'),
-
+    path('time_table_welcome',views.time_table_welcome,name='time_table_welcome'),
+    path('time_table_generation',views.time_table_generation,name='time_table_generation'),
+    path('attendance_marking',views.attendance_marking,name='attendance_marking'),
 ]
